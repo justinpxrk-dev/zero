@@ -6,7 +6,7 @@ The five flows to build.
 
 - [ ] **Scaffold Project**
   - [x] Developer tooling (format/lint)
-  - [ ] Language/framework dependencies
+  - [x] Language/framework dependencies
   - [x] Claude context
   - [ ] Claude skills
 - [ ] **Sign-up flow** — Auth.js Google OAuth → store refresh token in `accounts` → call `users.watch` first-time, store returned `historyId`.
