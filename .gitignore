@@ -1,4 +1,6 @@
 .DS_Store
 .env
+.next
 .obsidian
+*.tsbuildinfo
 node_modules
