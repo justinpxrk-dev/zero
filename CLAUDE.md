@@ -8,6 +8,8 @@ Tech stack: @docs/architecture/tech-stack.md
 
 ```
 zero/
+├── .claude/
+│   └── skills/                   # Workflow skills (commit, land, preflight, sync)
 ├── apps/
 │   └── web/                      # Next.js app
 ├── packages/
