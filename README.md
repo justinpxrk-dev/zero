@@ -4,6 +4,10 @@ LLM-powered Gmail triage. Sign in with Google and automatically organize your in
 
 See [Overview](./docs/architecture/overview.md) for the system overview and [Tech Stack](./docs/architecture/tech-stack.md) for the tech stack.
 
+## Dashboard
+
+[![CI](https://github.com/justinpxrk-dev/zero/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/justinpxrk-dev/zero/actions/workflows/ci.yml)
+
 ## Developer setup
 
 This repo uses [mise](https://mise.jdx.dev/) to manage developer tools.
