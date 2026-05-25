@@ -1,0 +1,4 @@
+[tools]
+node = "24"
+lefthook = "2"
+"npm:pnpm" = "11"

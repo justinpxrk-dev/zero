@@ -1,0 +1,9 @@
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      run: mise exec -- pnpm format:check
+    lint:
+      run: mise exec -- pnpm lint
+    typecheck:
+      run: mise exec -- pnpm typecheck
