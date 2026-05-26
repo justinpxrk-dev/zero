@@ -3,6 +3,7 @@
 Architecture and data flow: @docs/architecture/overview.md
 Scenarios (sequence diagrams): @docs/architecture/scenarios.md
 Tech stack: @docs/architecture/tech-stack.md
+Lessons learned from past corrections: @tasks/lessons.md
 
 ## Project structure
 
