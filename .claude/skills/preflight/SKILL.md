@@ -1,11 +1,11 @@
 ---
 name: preflight
-description: Run format, lint, build, typecheck, and scan docs for staleness — the full pre-commit check. Use when the user wants to "preflight", "verify", or confirm the working tree is ready to commit. Automatically invoked by /commit.
+description: Run format, lint, typecheck, build, and scan docs for staleness — the full pre-commit check. Use when the user wants to "preflight", "verify", or confirm the working tree is ready to commit. Automatically invoked by /commit.
 ---
 
 # Preflight — pre-commit verification
 
-Run formatting / linting / build / typecheck, then scan documentation for staleness so a commit goes out clean.
+Run formatting / linting / typecheck / build, then scan documentation for staleness so a commit goes out clean.
 
 ## Steps
 
@@ -13,8 +13,8 @@ Run in order. Stop on the first failure and surface the error verbatim.
 
 1. **Format** — `pnpm format` (Prettier auto-writes).
 2. **Lint** — `pnpm lint`. If it fails with auto-fixable issues, suggest `pnpm lint:fix` and ask before running it.
-3. **Build** — `pnpm build`. Must run **before** typecheck: `next build` regenerates `apps/web/next-env.d.ts` and the `.next/types/*` files that `apps/web`'s `tsc` depends on. Both are gitignored, so on a fresh clone typecheck will fail until build has run once.
-4. **Typecheck** — `pnpm typecheck` (runs recursively across packages).
+3. **Typecheck** — `pnpm typecheck`. Only runs `tsc` against `@zero/core`; `apps/web` is type-checked by `next build` in the next step (running `tsc` against web pre-build fails on missing gitignored `next-env.d.ts` / `.next/types/*`).
+4. **Build** — `pnpm build`.
 5. **Tests** — _(none configured yet; add here once a test runner is in place)_.
 6. **Documentation scan.** Compare `git status --short` and `git diff` against docs that could now be out of date:
    - `CLAUDE.md` — project structure, conventions
