@@ -19,12 +19,12 @@ zero/
 │   │   ├── overview.md           # System context: components + data flow diagram
 │   │   ├── scenarios.md          # Sequence diagrams for sign-in, ingestion, watch renewal
 │   │   └── tech-stack.md         # Tech choices and hosting
-│   ├── ops/
-│   │   └── accounts.md           # Owner / test Google account setup
-│   └── TODO.md                   # Implementation backlog
+│   └── ops/
+│       └── accounts.md           # Owner / test Google account setup
 ├── tasks/
 │   ├── architecture/
 │   │   └── open-questions.md     # Undecided architectural questions
+│   ├── TODO.md                   # Implementation backlog
 │   └── lessons.md                # Local, gitignored — Claude's per-contributor lessons file
 ├── CLAUDE.md
 └── README.md                     # Developer setup

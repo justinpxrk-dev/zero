@@ -19,7 +19,7 @@ Run in order. Stop on the first failure and surface the error verbatim.
 6. **Documentation scan.** Compare `git status --short` and `git diff` against docs that could now be out of date:
    - `CLAUDE.md` — project structure, conventions
    - `docs/architecture/*.md` — overview, scenarios, tech-stack
-   - `docs/ops/*.md`, `docs/TODO.md`, `tasks/architecture/open-questions.md`
+   - `docs/ops/*.md`, `tasks/TODO.md`, `tasks/architecture/open-questions.md`
    - `README.md` — developer setup
    - `.claude/skills/**/SKILL.md` — if a workflow described there has changed
 
