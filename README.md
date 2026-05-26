@@ -23,6 +23,14 @@ Install `node` dependencies.
 pnpm install
 ```
 
+Start the dev server.
+
+```sh
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
 ### Receiving Gmail push notifications locally
 
 Gmail Pub/Sub can't push to `localhost` — expose your dev server with a tunnel (e.g. `cloudflared tunnel --url http://localhost:3000`) and point your dev Pub/Sub subscription at the tunnel URL.
