@@ -31,6 +31,28 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+### Database (local)
+
+Postgres runs locally via Docker:
+
+```sh
+docker compose up -d db
+```
+
+Copy the env example and set `DATABASE_URL` to the container:
+
+```sh
+cp apps/web/.env.example apps/web/.env
+# apps/web/.env -> DATABASE_URL=postgres://zero:zero@localhost:5432/zero
+```
+
+Apply migrations (and optionally open the Drizzle Studio GUI):
+
+```sh
+pnpm db:migrate
+pnpm db:studio
+```
+
 ### Receiving Gmail push notifications locally
 
 Gmail Pub/Sub can't push to `localhost` — expose your dev server with a tunnel (e.g. `cloudflared tunnel --url http://localhost:3000`) and point your dev Pub/Sub subscription at the tunnel URL.

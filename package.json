@@ -15,7 +15,11 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "pnpm --filter @zero/core typecheck",
-    "build": "pnpm -r build"
+    "build": "pnpm -r build",
+    "db:generate": "pnpm --filter @zero/web db:generate",
+    "db:migrate": "pnpm --filter @zero/web db:migrate",
+    "db:push": "pnpm --filter @zero/web db:push",
+    "db:studio": "pnpm --filter @zero/web db:studio"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
