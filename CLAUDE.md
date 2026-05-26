@@ -3,7 +3,6 @@
 Architecture and data flow: @docs/architecture/overview.md
 Scenarios (sequence diagrams): @docs/architecture/scenarios.md
 Tech stack: @docs/architecture/tech-stack.md
-Lessons learned from past corrections: @tasks/lessons.md
 
 ## Project structure
 
@@ -26,7 +25,7 @@ zero/
 │   ├── architecture/
 │   │   └── open-questions.md     # Undecided architectural questions
 │   ├── TODO.md                   # Implementation backlog
-│   └── lessons.md                # Local, gitignored — Claude's per-contributor lessons file
+│   └── lessons.md                # Local, gitignored, main worktree only — Claude's per-contributor lessons file
 ├── CLAUDE.md
 └── README.md                     # Developer setup
 ```
@@ -35,6 +34,8 @@ zero/
 
 ## Lessons
 
-- After ANY correction from the user: update tasks/lessons.md with the pattern
+`tasks/lessons.md` lives in the **main worktree only** (gitignored, single shared copy). Child worktrees under `.claude/worktrees/` do NOT have their own — always read and update the main worktree's copy at `<repo-root>/tasks/lessons.md`. If running in a child worktree, resolve that absolute path via `git worktree list` (first entry is the main worktree). If the file doesn't exist yet, create it there on the first correction.
+
+- After ANY correction from the user: update the main worktree's `tasks/lessons.md` with the pattern
 - Write rules for yourself that prevent the same mistake
 - Ruthlessly iterate on these lessons until mistake rate drops
