@@ -28,5 +28,8 @@ jobs:
       - name: Lint
         run: pnpm lint
 
+      - name: Typecheck
+        run: pnpm --filter @zero/core typecheck
+
       - name: Build
         run: pnpm build

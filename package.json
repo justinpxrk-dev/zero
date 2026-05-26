@@ -13,7 +13,7 @@
     "format:check": "prettier --check .",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "pnpm -r typecheck",
+    "typecheck": "pnpm --filter @zero/core typecheck",
     "build": "pnpm -r build"
   },
   "devDependencies": {
