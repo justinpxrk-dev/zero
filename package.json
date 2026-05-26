@@ -8,7 +8,7 @@
     "node": "24.x"
   },
   "scripts": {
-    "prepare": "lefthook install",
+    "prepare": "if [ -d .git ]; then lefthook install; fi",
     "dev": "pnpm --filter @zero/web dev",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
