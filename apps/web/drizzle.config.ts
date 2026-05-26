@@ -7,5 +7,6 @@ export default {
   schema: "./db/schema.ts",
   out: "./drizzle",
   dialect: "postgresql",
+  casing: "snake_case",
   dbCredentials: { url },
 } satisfies Config;

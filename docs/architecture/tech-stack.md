@@ -9,7 +9,7 @@
 | **Styling**              | Tailwind CSS                                                                                                     |
 | **UI components**        | shadcn/ui (Radix primitives, components copied into repo)                                                        |
 | **Icons**                | Lucide (+ Simple Icons for brand logos when needed)                                                              |
-| **Auth**                 | Auth.js v5 with Google provider, Drizzle adapter                                                                 |
+| **Auth**                 | Better Auth (Drizzle adapter, Google provider)                                                                   |
 | **OAuth scopes**         | `openid email profile gmail.readonly` (progressive consent for Calendar / Tasks)                                 |
 | **Mail access**          | Gmail API                                                                                                        |
 | **Mail sync trigger**    | Gmail Pub/Sub push (dev via tunnel, prod direct)                                                                 |
