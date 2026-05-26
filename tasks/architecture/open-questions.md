@@ -15,6 +15,7 @@ Architectural decisions still to make. Entries get deleted as they're resolved i
 
 - **Initial backfill on signup.** Process only emails arriving after sign-up, or backfill the last N days via history sync? Affects whether the sign-in scenario has a backfill phase.
 - **Pub/Sub idempotency.** Pub/Sub is at-least-once — the same push can fire repeatedly. Dedup on Gmail `historyId` / `messageId`?
+- **Fast-ack for push handler.** The handler currently does token refresh + history sync + N × Gemini extract inside one request. Risks Vercel function timeout (10s Hobby), Gemini free-tier rate-limit drops (15 RPM), and duplicate work when Pub/Sub retries a slow handler. Move to fast-ack — handler writes a pending `historyId` row + returns 200, async worker drains. Worker candidates: `waitUntil` (no infra, no durability across crashes), QStash (HTTP queue with retries, free tier), Inngest (durable workflows). Defer until timeouts or duplicates are actually observed.
 - **Watch renewal iteration.** Iterate users sequentially or in parallel inside the daily cron? Bounded by Gmail per-user rate limits and Vercel function timeout (10s on Hobby). At scale, chunk via Pub/Sub self-triggering across multiple invocations.
 
 ## Product behavior
