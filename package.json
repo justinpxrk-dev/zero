@@ -9,6 +9,7 @@
   },
   "scripts": {
     "prepare": "lefthook install",
+    "dev": "pnpm --filter @zero/web dev",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
