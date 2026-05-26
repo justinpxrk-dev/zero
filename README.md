@@ -26,3 +26,11 @@ pnpm install
 ### Receiving Gmail push notifications locally
 
 Gmail Pub/Sub can't push to `localhost` — expose your dev server with a tunnel (e.g. `cloudflared tunnel --url http://localhost:3000`) and point your dev Pub/Sub subscription at the tunnel URL.
+
+## Working with Claude
+
+This repo is set up to work well with [Claude Code](https://docs.claude.com/en/docs/claude-code):
+
+- [`CLAUDE.md`](./CLAUDE.md) — project context loaded into every Claude session.
+- [`.claude/skills/`](./.claude/skills/) — workflow skills (`commit`, `land`, `preflight`, `sync`).
+- `tasks/lessons.md` — **local, gitignored.** Claude logs corrections here as you give them so the same mistake isn't repeated across sessions. Each contributor maintains their own; create it as an empty markdown file on first use.
