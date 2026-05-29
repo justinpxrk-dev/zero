@@ -20,16 +20,16 @@ Non-trivial bodies use `- ` bullets wrapped ~72 chars, backticks for paths/scrip
 
 Worktrees have independent working trees, so gitignored files (e.g. `.env`) written from a worktree are invisible in main and other worktrees. Write shared local state (scratch notes) to the main checkout — from a worktree, `dirname "$(git rev-parse --git-common-dir)"` resolves its root.
 
+## Fetch and rebase before opening or pushing a PR
+
+Before `git push -u` for a new PR branch (or any force-push), run `git fetch origin && git rebase origin/main`. Local `main` lags in worktrees, and a PR off stale `main` conflicts the moment another lands first. Not in `/preflight` or `/commit` — manual habit. Precedent: PR #15 conflicted with merged PR #14 in `package.json` scripts; needed rebase + force-push-with-lease.
+
 ## Worktree permission grants: mirror to main, revoke at teardown
 
 Path-scoped grants made in a worktree (`mise trust`, tool-permission approvals, anything path-keyed under `~/.local/` or `~/.config/`):
 
 - **Mirror to main** — grant the equivalent in the main checkout; it's the canonical environment.
 - **Revoke at teardown** — undo on branch merge / worktree removal (e.g. `mise trust --untrust /path/to/worktree/mise.toml`).
-
-## Fetch and rebase before opening or pushing a PR
-
-Before `git push -u` for a new PR branch (or any force-push), run `git fetch origin && git rebase origin/main`. Local `main` lags in worktrees, and a PR off stale `main` conflicts the moment another lands first. Not in `/preflight` or `/commit` — manual habit. Precedent: PR #15 conflicted with merged PR #14 in `package.json` scripts; needed rebase + force-push-with-lease.
 
 ## Search before contradicting recent facts past the cutoff
 
