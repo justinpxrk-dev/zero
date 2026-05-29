@@ -15,12 +15,14 @@ Stage the intended changes and write a commit message that matches this repo's c
 4. Draft a message following the format below.
 5. **Show the user the drafted message and confirm before committing.**
 6. Commit via heredoc to preserve formatting:
-   ```
+
+   ```sh
    git commit -m "$(cat <<'EOF'
    <message>
    EOF
    )"
    ```
+
 7. Run `git status` after to confirm.
 
 ## Format
@@ -36,13 +38,13 @@ Stage the intended changes and write a commit message that matches this repo's c
 ### Body
 
 - **Omit entirely** for trivial one-liners (e.g. `chore: ignore .claude/worktrees`).
-- Otherwise: blank line after subject, then bullets (`- `) or short paragraphs wrapped at ~72 chars.
+- Otherwise: blank line after subject, then bullets (`-`) or short paragraphs wrapped at ~72 chars.
 - Explain **why**, not what — design rationale, security context, links to upstream issues.
 - Link external context (Dependabot alerts, GitHub issues) when it adds signal.
 
 ### Examples from this repo
 
-```
+```sh
 ci: scope GITHUB_TOKEN and bump pinned actions
 
 - Add top-level permissions block (contents: read)
@@ -50,7 +52,7 @@ ci: scope GITHUB_TOKEN and bump pinned actions
 - Bump jdx/mise-action v2 -> v4.0.1 (immutable release tag)
 ```
 
-```
+```text
 chore: ignore .claude/worktrees
 ```
 

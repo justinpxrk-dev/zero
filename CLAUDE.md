@@ -6,7 +6,7 @@ Tech stack: @docs/architecture/tech-stack.md
 
 ## Project structure
 
-```
+```text
 zero/
 ├── .claude/
 │   └── skills/                   # Workflow skills (commit, land, preflight, sync)
