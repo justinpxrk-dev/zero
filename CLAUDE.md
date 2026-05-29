@@ -36,8 +36,8 @@ zero/
 
 @tasks/lessons.md
 
-`tasks/lessons.md` is a committed, team-wide staging space for lessons. New ones start here; the user promotes proven lessons to their permanent home (`CLAUDE.md`, `.claude/skills/<skill>/SKILL.md`).
+`tasks/lessons.md` is a committed, team-wide staging space for lessons, each with a stable `id`. New ones start here; the user promotes proven lessons to their permanent home (`CLAUDE.md`, `.claude/skills/<skill>/SKILL.md`).
 
-- After ANY correction from the user: add the pattern to `tasks/lessons.md` as a rule that prevents the same mistake
-- Whenever a lesson is applied, move it up one section so frequently used lessons float to the top
-- Ruthlessly iterate until mistake rate drops
+- After ANY correction from the user: add the pattern to `tasks/lessons.md` as a rule that prevents the same mistake, with a short `id`
+- When a lesson is applied (or you get re-corrected on one), append a row to `tasks/lessons-hits.tsv` (`date  id  applied|corrected  ref`) — do not reorder `tasks/lessons.md`
+- Ruthlessly iterate until mistake rate drops; run `/audit-lessons` to review hit counts and promote/prune candidates
