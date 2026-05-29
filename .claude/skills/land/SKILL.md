@@ -12,9 +12,11 @@ Merge the current branch's PR into `main`, delete the branch, and return to a cl
 1. Refuse if the current branch is `main`.
 2. `git status --short` — if the working tree is dirty, bail and ask the user to commit or stash first.
 3. Fetch PR state:
-   ```
+
+   ```sh
    gh pr view --json number,state,mergeable,mergeStateStatus,statusCheckRollup,reviewDecision,headRefName,baseRefName,url
    ```
+
 4. If `state` is not `OPEN`, report and stop.
 5. If `baseRefName` is not `main`, surface and ask before continuing (could be a stacked PR).
 6. Check readiness:
@@ -24,13 +26,17 @@ Merge the current branch's PR into `main`, delete the branch, and return to a cl
    - **`mergeable` is `CONFLICTING`**: tell the user to `/sync` first, stop.
 7. When everything is green, **confirm with the user before merging**. Never merge automatically.
 8. Merge:
-   ```
+
+   ```sh
    gh pr merge --rebase --delete-branch
    ```
+
 9. Return to main:
-   ```
+
+   ```sh
    git checkout main && git pull --ff-only origin main
    ```
+
 10. Report: PR number + URL, new commit(s) on `main`, branch deleted.
 
 ## Rules
