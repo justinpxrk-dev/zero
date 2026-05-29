@@ -30,13 +30,15 @@ zero/
 └── README.md                     # Developer setup
 ```
 
-`docs/` is published reference material; `tasks/` is in-flight working state (open questions, local Claude lessons). Documentation is split by topic; extend the relevant file rather than creating new ones. Diagrams use Mermaid (rendered natively by Obsidian).
+`docs/` is published reference material; `tasks/` is in-flight working state (open questions, local Claude lessons). Documentation is split by topic; extend the relevant file rather than creating new ones. Diagrams use Mermaid.
 
 ## Lessons
 
-`tasks/lessons.md` lives in the **main worktree only** (gitignored, single shared copy). Child worktrees under `.claude/worktrees/` do NOT have their own — always read and update the main worktree's copy at `<repo-root>/tasks/lessons.md`. If running in a child worktree, resolve that absolute path via `git worktree list` (first entry is the main worktree). If the file doesn't exist yet, create it there on the first correction.
+@tasks/lessons.md
+
+The import above auto-loads the lessons every session, **from any worktree**. It resolves because child worktrees live under `.claude/worktrees/`, so Claude walks up the directory tree and also loads this root `CLAUDE.md`, and a relative `@import` resolves against the file that contains it (this one, in the main worktree) — not the cwd. Keep it a bare relative path for that reason; don't rewrite it to an absolute path. The file itself is **main worktree only** (gitignored, single shared copy); child worktrees have none of their own. Always read and update that one main-worktree copy at `<repo-root>/tasks/lessons.md`; from a child worktree, resolve the root with `dirname "$(git rev-parse --git-common-dir)"`. Create it there on the first correction if missing.
 
 - After ANY correction from the user: update the main worktree's `tasks/lessons.md` with the pattern
 - Write rules for yourself that prevent the same mistake
-- Whenever a lesson is applied, move it up one section in `tasks/lessons.md` so frequently used lessons float to the top
+- **Whenever you apply a lesson, move its section up one slot** in `tasks/lessons.md` (swap it with the section directly above) so frequently used lessons float to the top
 - Ruthlessly iterate on these lessons until mistake rate drops
