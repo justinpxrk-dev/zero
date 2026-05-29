@@ -38,4 +38,5 @@ zero/
 
 - After ANY correction from the user: update the main worktree's `tasks/lessons.md` with the pattern
 - Write rules for yourself that prevent the same mistake
+- Whenever a lesson is applied, move it up one section in `tasks/lessons.md` so frequently used lessons float to the top
 - Ruthlessly iterate on these lessons until mistake rate drops
