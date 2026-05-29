@@ -41,6 +41,6 @@ This repo is set up to work well with [Claude Code](https://docs.claude.com/en/d
 
 - [`CLAUDE.md`](./CLAUDE.md) — project context loaded into every Claude session.
 - [`.claude/skills/`](./.claude/skills/) — workflow skills (`commit`, `land`, `preflight`, `sync`).
-- `tasks/lessons.md` — **local, gitignored.** Claude logs corrections here as you give them so the same mistake isn't repeated across sessions. Each contributor maintains their own; create it as an empty markdown file on first use.
+- `tasks/lessons.md` — **committed, team-wide staging space.** Claude logs corrections here as you give them so the same mistake isn't repeated across sessions or contributors. `@`-imported by `CLAUDE.md`, so it loads into every session.
 
-Workflow: new lessons start here and stay local while you test whether they actually change Claude's behavior. Once a lesson has proven itself, promote it to the appropriate committed location so the whole team benefits — `CLAUDE.md` for project-wide conventions, `.claude/skills/<skill>/SKILL.md` for workflow-specific rules.
+Workflow: lessons start in this staging space while you test whether they actually change Claude's behavior. Once a lesson has proven itself, promote it to its permanent home so the whole team benefits — `CLAUDE.md` for project-wide conventions, `.claude/skills/<skill>/SKILL.md` for workflow-specific rules — and drop it from the staging file.
