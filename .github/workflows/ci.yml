@@ -33,3 +33,12 @@ jobs:
 
       - name: Build
         run: pnpm build
+        env:
+          # Dummy values; the build imports `auth` -> `db` but never connects or
+          # authenticates. DATABASE_URL is mandatory: db/index.ts throws at import
+          # if it's unset (pg.Pool is lazy, so the connection is never opened).
+          # BETTER_AUTH_SECRET is optional — without it Better Auth rejects its
+          # built-in default secret under production and logs a non-fatal error;
+          # the dummy just keeps the build log clean.
+          DATABASE_URL: postgres://ci-build-only:not-a-real-password@localhost:5432/not-a-real-db
+          BETTER_AUTH_SECRET: ci-build-only-not-a-real-secret
